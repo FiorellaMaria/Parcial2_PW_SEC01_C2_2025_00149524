@@ -1,0 +1,78 @@
+const express = require("express");
+const app = express();
+const PORT = 3130;
+
+const cuentas = require("./cuentas.json");
+
+// Datos de cuentas (7 objetos)
+const cuentas = [
+  {
+    "_id": "68f863f0196d296c9e219f27",
+    "isActive": true,
+    "picture": "https://files.consumerfinance.gov/f/images/protected-money_1140x642_ai_fw_io.original.png",
+    "balance": "$25223",
+    "client": "Katie Woodard",
+    "gender": "female"
+  },
+  {
+    "_id": "71a463f0196d296c9e219f11",
+    "isActive": false,
+    "picture": "https://files.consumerfinance.gov/f/images/protected-money_1140x642_ai_fw_io.original.png",
+    "balance": "$18000",
+    "client": "Michael Carter",
+    "gender": "male"
+  },
+  {
+    "_id": "52d863f0196d296c9e219a92",
+    "isActive": true,
+    "picture": "https://files.consumerfinance.gov/f/images/protected-money_1140x642_ai_fw_io.original.png",
+    "balance": "$40200",
+    "client": "Emily Brown",
+    "gender": "female"
+  },
+  {
+    "_id": "11b863f0196d296c9e219d11",
+    "isActive": true,
+    "picture": "https://files.consumerfinance.gov/f/images/protected-money_1140x642_ai_fw_io.original.png",
+    "balance": "$9950",
+    "client": "James Smith",
+    "gender": "male"
+  },
+  {
+    "_id": "99f863f0196d296c9e219e44",
+    "isActive": false,
+    "picture": "https://files.consumerfinance.gov/f/images/protected-money_1140x642_ai_fw_io.original.png",
+    "balance": "$5200",
+    "client": "Anna Johnson",
+    "gender": "female"
+  },
+  {
+    "_id": "88f863f0196d296c9e219e55",
+    "isActive": true,
+    "picture": "https://files.consumerfinance.gov/f/images/protected-money_1140x642_ai_fw_io.original.png",
+    "balance": "$31000",
+    "client": "Robert Davis",
+    "gender": "male"
+  },
+  {
+    "_id": "44f863f0196d296c9e219e77",
+    "isActive": true,
+    "picture": "https://files.consumerfinance.gov/f/images/protected-money_1140x642_ai_fw_io.original.png",
+    "balance": "$21500",
+    "client": "Sophia Wilson",
+    "gender": "female"
+  }
+];
+
+// Ruta para obtener todas las cuentas
+app.get("/cuentas", (req, res) => {
+  res.json({
+    count: cuentas.length,
+    data: cuentas
+  });
+});
+
+// Iniciar el servidor
+app.listen(PORT, () => {
+  console.log(`Servidor funcionando en http://localhost:${PORT}`);
+});
